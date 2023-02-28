@@ -2944,16 +2944,12 @@ const styles = {
         fontSize: variables.fontSizeXXLarge,
         letterSpacing: 4,
     },
-    listPickerSeparator: {
-        height: 1,
-        backgroundColor: themeColors.buttonDefaultBG,
+    datePickerPopover: {
+        position: 'absolute',
+        backgroundColor: themeColors.appBG,
+        width: '100%',
+        top: 60,
     },
-    listPicker: (height, separatorHeight) => ({
-        height: (height * 10) - separatorHeight,
-    }),
-    listPickerItem: height => ({
-        height,
-    }),
 };
 
 export default styles;
