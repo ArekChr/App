@@ -36,7 +36,7 @@ afterEach(() => {
 });
 
 test('simple Sidebar render with hundred of reports', () => {
-    const mockReports = Array.from({length: 100}, (__, i) => {
+    const mockReports = Array.from({length: 200}, (__, i) => {
         const reportID = i + 1;
         const emails = [`email${reportID}@test.com`];
         const reportKey = `${ONYXKEYS.COLLECTION.REPORT}${reportID}`;
