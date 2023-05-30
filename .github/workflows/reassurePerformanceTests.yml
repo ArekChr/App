@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           set -e 
-          BASELINE_BRANCH=${BASELINE_BRANCH:="main"}
+          BASELINE_BRANCH=${BASELINE_BRANCH:="main_test"}
           git fetch origin
           git switch "$BASELINE_BRANCH"
           npm install --force
