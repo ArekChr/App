@@ -10,13 +10,11 @@ jobs:
   perf-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          node-version: 16.x
+          fetch-depth: 0
 
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: Expensify/App/.github/actions/composite/setupNode@main
 
       - name: Run performance testing script
         run: |
