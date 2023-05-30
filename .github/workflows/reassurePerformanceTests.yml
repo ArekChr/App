@@ -11,17 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run performance testing script
-        shell: bash
-        run: |
-          set -e 
-          BASELINE_BRANCH=${BASELINE_BRANCH:="main_test"}
-          git fetch origin
-          git switch "$BASELINE_BRANCH"
-          npm install --force
-          npm run reassure --baseline
-          git switch --detach -
-          npm install --force
-          npm run reassure --branch
+        run: ../scripts/reassure-tests.sh
 
       - name: Run Danger.js
         run: npm run danger ci
