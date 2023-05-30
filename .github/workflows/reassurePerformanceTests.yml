@@ -1,0 +1,29 @@
+name: Reassure Performance Tests
+
+on:
+  push:
+    branches: [main_test]
+  pull_request:
+    branches: ['**']
+
+jobs:
+  perf-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run performance testing script
+        shell: bash
+        run: |
+          set -e 
+          BASELINE_BRANCH=${BASELINE_BRANCH:="main_test"}
+          git fetch origin
+          git switch "$BASELINE_BRANCH"
+          npm install --force
+          npm run reassure --baseline
+          git switch --detach -
+          npm install --force
+          npm run reassure --branch
+
+      - name: Run Danger.js
+        run: npm run danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
