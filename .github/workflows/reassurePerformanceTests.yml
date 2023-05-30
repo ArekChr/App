@@ -26,4 +26,4 @@ jobs:
       - name: Run Danger.js
         run: npm run danger ci
         env:
-          GITHUB_TOKEN: ${{ secrets.OS_BOTIFY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
