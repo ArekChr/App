@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run performance testing script
-        run: ../../scripts/reassure-tests.sh
+        run: '../../scripts/reassure-tests.sh'
 
       - name: Run Danger.js
         run: npm run danger ci
