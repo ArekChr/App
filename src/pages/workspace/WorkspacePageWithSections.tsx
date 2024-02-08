@@ -73,6 +73,9 @@ type WorkspacePageWithSectionsProps = WithPolicyAndFullscreenLoadingProps &
 
         /** Policy values needed in the component */
         policy: OnyxEntry<Policy>;
+
+        /** Right component to be added to the header */
+        rightComponent?: () => ReactNode;
     };
 
 function fetchData(skipVBBACal?: boolean) {
@@ -100,6 +103,7 @@ function WorkspacePageWithSections({
     shouldShowLoading = true,
     shouldShowOfflineIndicatorInWideScreen = false,
     shouldShowNonAdmin = false,
+    rightComponent,
 }: WorkspacePageWithSectionsProps) {
     const styles = useThemeStyles();
     useNetwork({onReconnect: () => fetchData(shouldSkipVBBACall)});
@@ -153,12 +157,15 @@ function WorkspacePageWithSections({
                 subtitleKey={isEmptyObject(policy) ? undefined : 'workspace.common.notAuthorized'}
                 shouldForceFullScreen
             >
-                <HeaderWithBackButton
-                    title={headerText}
-                    guidesCallTaskID={guidesCallTaskID}
-                    shouldShowBackButton={isSmallScreenWidth || shouldShowBackButton}
-                    onBackButtonPress={() => Navigation.goBack(backButtonRoute ?? ROUTES.WORKSPACE_INITIAL.getRoute(policyID))}
-                />
+                <View style={[styles.flexRow, styles.justifyContentBetween]}>
+                    <HeaderWithBackButton
+                        title={headerText}
+                        guidesCallTaskID={guidesCallTaskID}
+                        shouldShowBackButton={isSmallScreenWidth || shouldShowBackButton}
+                        onBackButtonPress={() => Navigation.goBack(backButtonRoute ?? ROUTES.WORKSPACE_INITIAL.getRoute(policyID))}
+                    />
+                    {rightComponent?.()}
+                </View>
                 {(isLoading || firstRender.current) && shouldShowLoading ? (
                     <FullScreenLoadingIndicator style={[styles.flex1, styles.pRelative]} />
                 ) : (

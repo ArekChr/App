@@ -1598,6 +1598,7 @@ const CONST = {
         SETTINGS: 'settings',
         LEAVE_ROOM: 'leaveRoom',
         PRIVATE_NOTES: 'privateNotes',
+        TAGS: 'tags',
     },
     EDIT_REQUEST_FIELD: {
         AMOUNT: 'amount',

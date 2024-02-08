@@ -130,6 +130,12 @@ function WorkspaceInitialPage(props) {
             routeName: SCREENS.WORKSPACE.TRAVEL,
         },
         {
+            translationKey: 'workspace.common.tags',
+            icon: Expensicons.Luggage,
+            action: singleExecution(waitForNavigate(() => Navigation.navigate(ROUTES.WORKSPACE_TAGS.getRoute(policy.id)))),
+            routeName: SCREENS.WORKSPACE.TAGS,
+        },
+        {
             translationKey: 'workspace.common.members',
             icon: Expensicons.Users,
             action: singleExecution(waitForNavigate(() => Navigation.navigate(ROUTES.WORKSPACE_MEMBERS.getRoute(policy.id)))),

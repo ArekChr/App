@@ -2265,7 +2265,7 @@ const styles = (theme: ThemeColors) =>
             display: 'flex',
             paddingLeft: 20,
             height: variables.contentHeaderHeight,
-            width: '100%',
+            // width: '100%',
         },
 
         headerBarDesktopHeight: {

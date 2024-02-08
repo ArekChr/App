@@ -1533,6 +1533,7 @@ export default {
             edit: 'Edit workspace',
             delete: 'Delete workspace',
             settings: 'Settings',
+            tags: 'Tags',
             reimburse: 'Reimbursements',
             bills: 'Bills',
             invoices: 'Invoices',
